@@ -9,4 +9,5 @@ export let actions = {
 
     NEW_GAME: "NEW_GAME",
     NEW_GAME_SUCCEEDED: "NEW_GAME_SUCCEEDED",
+    NEW_GAME_FAILED: "NEW_GAME_FAILED",
 }

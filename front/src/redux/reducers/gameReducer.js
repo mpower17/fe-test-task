@@ -3,7 +3,7 @@ import {actions} from "../actions/actions";
 let initialState = {
     player: "",
     ai: "",
-    board: [[], [], []],
+    board: [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
     winner: "",
     team: ""
 }
@@ -23,7 +23,7 @@ export const gameReducer = (state = initialState, action) => {
         case actions.NEW_GAME_SUCCEEDED:
             return {
                 ...state,
-                board: action.board
+                board: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
             }
         default:
             return state

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Game.module.css'
 
 let Game = (props) => {
+    debugger
     return (
         <div className={styles.game}>
             <div className={styles.gameBoard}>
@@ -18,7 +19,7 @@ let Game = (props) => {
                 }
             </div>
 
-            <button>New game</button>
+            <button onClick={() => {props.newGame()}}>New game</button>
             <button>History</button>
         </div>
     )
