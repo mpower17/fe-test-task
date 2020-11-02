@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Game.module.css'
 import GameModalContainer from "../GameModal/GameModalContainer";
+import {Button} from "react-bootstrap";
 
 let Game = (props) => {
 
@@ -12,19 +13,23 @@ let Game = (props) => {
                     {
                         props.board ? [].concat(props.board[0], props.board[1], props.board[2]).map(el => {
                             if (el === "X") {
-                                return <div className={styles.cell + " " + styles.cellX}/>;
+                                return <div className={styles.cell + " " + styles.cellX} key={Math.random()}/>;
                             } else if (el === "O"){
-                                return <div className={styles.cell + " " + styles.cellO}/>;
+                                return <div className={styles.cell + " " + styles.cellO} key={Math.random()}/>;
                             } else {
-                                return <div className={styles.cell} onClick={() => {props.makeMove(el)}}/>;
+                                return <div className={styles.cell} onClick={() => {
+                                    if (!props.end) {
+                                        props.makeMove(el);
+                                    }
+                                }} key={Math.random()}/>;
                             }
-                        }) : console.log("nothing :(")
+                        }) : null
                     }
                 </div>
 
                 <div className={styles.gameMenu}>
-                    <button className="btn btn-outline-primary" onClick={() => {props.newGame()}}>New game</button>
-                    <button className="btn btn-outline-primary" onClick={() => {props.resetGame()}}>Reset game</button>
+                    <Button variant="outline-primary" onClick={() => {props.newGame()}}>New game</Button>
+                    <Button variant="outline-primary" onClick={() => {props.resetGame()}}>Reset game</Button>
                 </div>
             </div>
         </div>

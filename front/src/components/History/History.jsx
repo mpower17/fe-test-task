@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './History.module.css';
+import {Button, Table} from "react-bootstrap";
 
 let History = (props) => {
     return (
@@ -7,7 +8,7 @@ let History = (props) => {
         <div className={styles.historyContainer}>
             <div>
                 <h2>Number of wins</h2>
-                <table className="table">
+                <Table responsive="sm">
                     <thead>
                         <tr>
                             <th scope="col">who</th>
@@ -32,7 +33,7 @@ let History = (props) => {
                             <td>{props.historyData.O}</td>
                         </tr>
                     </tbody>
-                </table>
+                </Table>
             </div>
 
             <div>
@@ -47,7 +48,7 @@ let History = (props) => {
                     </thead>
                     <tbody>
                     {props.historyData ? props.historyData.list.map(el =>
-                        <tr>
+                        <tr key={Math.random()}>
                             <td>{el.winner}</td>
                             <td>{el.team}</td>
                             <td>{el.ts}</td>
@@ -58,7 +59,7 @@ let History = (props) => {
             </div>
 
             <div className={styles.historyMenu}>
-                <button className="btn btn-outline-primary" onClick={() => {props.resetHistory()}}>Reset history</button>
+                <Button variant="outline-primary" onClick={() => {props.resetHistory()}}>Reset history</Button>
             </div>
         </div> : <div>Nothing</div>
     )
