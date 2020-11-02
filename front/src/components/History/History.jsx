@@ -57,6 +57,9 @@ let History = (props) => {
                 </table>
             </div>
 
+            <div className={styles.historyMenu}>
+                <button className="btn btn-outline-primary" onClick={() => {props.resetHistory()}}>Reset history</button>
+            </div>
         </div> : <div>Nothing</div>
     )
 }

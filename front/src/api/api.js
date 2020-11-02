@@ -33,7 +33,7 @@ export const HistoryAPI = {
     },
 
     resetGameHistory() {
-        return instance.get("score/reset")
+        return instance.post("score/reset")
             .then(response => response.data)
     }
 }

@@ -2,16 +2,16 @@ import React from 'react';
 import {connect} from "react-redux";
 import History from "./History";
 import {fetchHistory} from "../../redux/actions/actionCreators/fetchHistory/fetchHistory";
+import {resetHistory} from "../../redux/actions/actionCreators/resetHistory/resetHistory";
 
 class HistoryContainer extends React.Component {
     componentDidMount() {
-        debugger
         this.props.fetchHistory();
     }
 
     render() {
         return (
-            <History historyData={this.props.historyData} />
+            <History historyData={this.props.historyData} resetHistory={this.props.resetHistory}/>
         )
     }
 }
@@ -23,5 +23,6 @@ let mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-    fetchHistory
+    fetchHistory,
+    resetHistory
 })(HistoryContainer);
