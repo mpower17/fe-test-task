@@ -2,35 +2,61 @@ import React from 'react';
 import styles from './History.module.css';
 
 let History = (props) => {
-    debugger
     return (
         props.historyData ?
-        <div>
+        <div className={styles.historyContainer}>
             <div>
-                <span>Количество побед</span>
-                <br/>
-                <span>{"ai " + props.historyData.ai}</span>
-                <br/>
-                <span>{"player " + props.historyData.player}</span>
-                <br/>
-                <span>{"X " + props.historyData.X}</span>
-                <br/>
-                <span>{"O " + props.historyData.O}</span>
+                <h2>Number of wins</h2>
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">who</th>
+                            <th scope="col">count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AI</td>
+                            <td>{props.historyData.ai}</td>
+                        </tr>
+                        <tr>
+                            <td>Player</td>
+                            <td>{props.historyData.player}</td>
+                        </tr>
+                        <tr>
+                            <td>X</td>
+                            <td>{props.historyData.X}</td>
+                        </tr>
+                        <tr>
+                            <td>O</td>
+                            <td>{props.historyData.O}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <table>
-                <tr>
-                    <th>winner</th>
-                    <th>team</th>
-                    <th>ts</th>
-                </tr>
-                {props.historyData ? props.historyData.list.map(el =>
+
+            <div>
+                <h2>Games history</h2>
+                <table className="table">
+                    <thead>
                     <tr>
-                        <th>{el.winner}</th>
-                        <th>{el.team}</th>
-                        <th>{el.ts}</th>
+                        <th scope="col">winner</th>
+                        <th scope="col">team</th>
+                        <th scope="col">ts</th>
                     </tr>
-                ) : console.log("Nothing :(")}
-            </table>
+                    </thead>
+                    <tbody>
+                    {props.historyData ? props.historyData.list.map(el =>
+                        <tr>
+                            <td>{el.winner}</td>
+                            <td>{el.team}</td>
+                            <td>{el.ts}</td>
+                        </tr>
+                    ) : console.log("Nothing :(")}
+                    </tbody>
+                </table>
+            </div>
+
         </div> : <div>Nothing</div>
     )
 }

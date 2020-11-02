@@ -15,8 +15,8 @@ export const GameAPI = {
             .then(response => response.data)
     },
 
-    resetGame(index) {
-        return instance.post("game/reset", {index: index})
+    resetGame() {
+        return instance.post("game/reset")
             .then(response => response.data)
     },
 

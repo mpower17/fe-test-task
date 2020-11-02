@@ -3,12 +3,14 @@ import './App.css';
 import GameContainer from "./components/Game/GameContainer";
 import {Route} from "react-router-dom";
 import HistoryContainer from "./components/History/HistoryContainer";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
       <div>
-        <Route path="/game" render={() => <GameContainer />}/>
-        <Route path="/history" render={() => <HistoryContainer />}/>
+          <Navbar/>
+          <Route path="/game" render={() => <GameContainer />}/>
+          <Route path="/history" render={() => <HistoryContainer />}/>
       </div>
   );
 }

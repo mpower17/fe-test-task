@@ -25,10 +25,20 @@ export function* makeMove(action) {
 
 export function* newGame() {
     try {
-        const res = yield call(GameAPI.nextGame);
+        yield call(GameAPI.nextGame);
         const gameField = yield call(GameAPI.getGameField);
         yield put(fetchBoardSucceeded(gameField.result.board));
     } catch (e) {
-        yield put({type: actions.MAKE_MOVE_FAILED})
+        yield put({type: actions.NEW_GAME_FAILED})
+    }
+}
+
+export function* resetGame() {
+    try {
+        yield call(GameAPI.resetGame);
+        const gameField = yield call(GameAPI.getGameField);
+        yield put(fetchBoardSucceeded(gameField.result.board));
+    } catch (e) {
+        yield put({type: actions.RESET_GAME_FAILED})
     }
 }

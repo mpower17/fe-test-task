@@ -19,8 +19,10 @@ let Game = (props) => {
                 }
             </div>
 
-            <button onClick={() => {props.newGame()}}>New game</button>
-            <button>History</button>
+            <div className={styles.gameMenu}>
+                <button className="btn btn-outline-primary" onClick={() => {props.newGame()}}>New game</button>
+                <button className="btn btn-outline-primary" onClick={() => {props.resetGame()}}>Reset game</button>
+            </div>
         </div>
     )
 }

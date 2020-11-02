@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {fetchBoard} from "../../redux/actions/actionCreators/fetchBoard/fetchBoard";
 import {makeMove} from "../../redux/actions/actionCreators/makeMove/makeMove";
 import {newGame} from "../../redux/actions/actionCreators/newGame/newGame";
+import {resetGame} from "../../redux/actions/actionCreators/resetGame/resetGame";
 
 class GameContainer extends React.Component {
     componentDidMount() {
@@ -12,7 +13,10 @@ class GameContainer extends React.Component {
 
     render() {
         return (
-            <Game makeMove={this.props.makeMove} newGame={this.props.newGame} board={this.props.board}/>
+            <Game makeMove={this.props.makeMove}
+                  newGame={this.props.newGame}
+                  board={this.props.board}
+                  resetGame={this.props.resetGame}/>
         )
     }
 }
@@ -27,5 +31,6 @@ let mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
     fetchBoard,
     makeMove,
-    newGame
+    newGame,
+    resetGame
 })(GameContainer);
