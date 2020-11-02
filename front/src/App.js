@@ -9,7 +9,7 @@ function App() {
   return (
       <div>
           <Navbar/>
-          <Route path="/game" render={() => <GameContainer />}/>
+          <Route exact path="/" render={() => <GameContainer />}/>
           <Route path="/history" render={() => <HistoryContainer />}/>
       </div>
   );
