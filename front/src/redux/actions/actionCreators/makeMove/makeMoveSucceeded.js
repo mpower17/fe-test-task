@@ -1,5 +1,5 @@
 import {actions} from "../../actions";
 
-export const makeMoveSucceeded = (board) => {
-    return { type: actions.MAKE_MOVE_SUCCEEDED, board: board };
+export const makeMoveSucceeded = (board, winner, end) => {
+    return { type: actions.MAKE_MOVE_SUCCEEDED, board: board, winner: winner, end: end  };
 };

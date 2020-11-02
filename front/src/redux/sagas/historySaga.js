@@ -16,7 +16,6 @@ export function* fetchHistory() {
 export function* resetHistory() {
     try {
         const historyData =  yield call(HistoryAPI.resetGameHistory);
-        debugger
         yield put(resetHistorySucceeded(historyData.result));
     } catch (e) {
         yield put({type: actions.FETCH_BOARD_FAILED})

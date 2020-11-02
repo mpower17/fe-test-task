@@ -7,7 +7,7 @@ import {makeMoveSucceeded} from "../actions/actionCreators/makeMove/makeMoveSucc
 export function* fetchBoard() {
     try {
         const gameField = yield call(GameAPI.getGameField);
-        yield put(fetchBoardSucceeded(gameField.result.board));
+        yield put(fetchBoardSucceeded(gameField.result.board, gameField.result.winner, gameField.result.end));
     } catch (e) {
         yield put({type: actions.FETCH_BOARD_FAILED})
     }
@@ -15,9 +15,8 @@ export function* fetchBoard() {
 
 export function* makeMove(action) {
     try {
-        debugger
         const gameField = yield call(GameAPI.makeMove, action.index);
-        yield put(makeMoveSucceeded(gameField.result.board));
+        yield put(makeMoveSucceeded(gameField.result.board, gameField.result.winner, gameField.result.end));
     } catch (e) {
         yield put({type: actions.MAKE_MOVE_FAILED})
     }
