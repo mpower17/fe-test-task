@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './Game.module.css'
 import GameModalContainer from "../GameModal/GameModalContainer";
 import {Button} from "react-bootstrap";
+import Log from "../Log/Log";
 
 let Game = (props) => {
-
     return (
         <div>
             {props.end ? <GameModalContainer winner={props.winner} newGame={props.newGame} end={props.end} /> : null }
@@ -20,12 +20,15 @@ let Game = (props) => {
                                 return <div className={styles.cell} onClick={() => {
                                     if (!props.end) {
                                         props.makeMove(el);
+                                        props.updateLog("player", el);
                                     }
                                 }} key={Math.random()}/>;
                             }
                         }) : null
                     }
                 </div>
+
+                <Log log={props.log} />
 
                 <div className={styles.gameMenu}>
                     <Button variant="outline-primary" onClick={() => {props.newGame()}}>New game</Button>

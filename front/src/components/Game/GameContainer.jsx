@@ -6,6 +6,7 @@ import {makeMove} from "../../redux/actions/actionCreators/makeMove/makeMove";
 import {newGame} from "../../redux/actions/actionCreators/newGame/newGame";
 import {resetGame} from "../../redux/actions/actionCreators/resetGame/resetGame";
 import {toggleModal} from "../../redux/actions/actionCreators/toggleModal/toggleModal";
+import {updateLog} from "../../redux/actions/actionCreators/updateLog/updateLog";
 
 class GameContainer extends React.Component {
     componentDidMount() {
@@ -20,6 +21,8 @@ class GameContainer extends React.Component {
                   resetGame={this.props.resetGame}
                   winner={this.props.winner}
                   end={this.props.end}
+                  updateLog={this.props.updateLog}
+                  log={this.props.log}
             />
         )
     }
@@ -30,7 +33,8 @@ let mapStateToProps = (state) => {
         field: state.gamePage.field,
         board: state.gamePage.board,
         winner: state.gamePage.winner,
-        end: state.gamePage.end
+        end: state.gamePage.end,
+        log: state.gamePage.log
     }
 }
 
@@ -39,5 +43,6 @@ export default connect(mapStateToProps, {
     makeMove,
     newGame,
     resetGame,
-    toggleModal
+    toggleModal,
+    updateLog
 })(GameContainer);
